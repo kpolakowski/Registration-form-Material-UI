@@ -13,3 +13,14 @@ Restrictions I have provided for different fields:
 - website (url type validation)
 - newsletter (optional)
 - acceptTerms (required to finish whole registration process)
+
+# Installation
+
+If you would like to run it localy:
+
+1. Clone this repo 
+    ### `git clone git@github.com:kpolakowski/Registration-form-Material-UI.git`
+2. Install all dependencies 
+    ### `npm i`
+3. Run in development mode
+    ### `npm start`
