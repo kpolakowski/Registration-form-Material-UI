@@ -1,27 +1,37 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Icon } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 //REGISTER FORM
 import RegisterForm from "./RegisterForm";
 //HEADER
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-
+//CONTEXT
+import UserContextProvider from "./RegisterForm/UserContext";
 const useStyles = makeStyles(theme => ({
   root: {
-    minHeight: "100vh"
+    minHeight: "100vh",
+    alignContent: "stretch",
+    [theme.breakpoints.down("sm")]: {
+      alignContent: "flex-start"
+    }
   },
   header: {
-    padding: theme.spacing(20, 15),
-    backgroundColor: theme.palette.primary.main
+    padding: theme.spacing(5),
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+    backgroundColor: theme.palette.primary.main,
+    [theme.breakpoints.down("sm")]: {
+      flexGrow: 1
+    }
   },
   title: {
-    color: theme.palette.primary.contrastText
+    color: theme.palette.primary.contrastText,
+    marginBottom: theme.spacing(1)
   },
   subtitle: {
-    color: theme.palette.primary.light,
-    margin: theme.spacing(3, 0)
+    color: theme.palette.primary.light
   },
   toolbar: {
     justifyContent: "center"
@@ -30,21 +40,21 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const classes = useStyles();
   return (
-    <div className="App">
+    <UserContextProvider>
       <Grid container className={classes.root}>
         <Grid item className={classes.header} xs={12} md={4}>
-          <Typography variant="h3" className={classes.title}>
+          <Typography variant='h3' className={classes.title}>
             Registration
           </Typography>
-          <Typography variant="h6" className={classes.subtitle}>
-            Complete all 3 steps to create account in this imaginary service
+          <Typography variant='h5' className={classes.subtitle}>
+            Complete all 3 steps to finish registration process
           </Typography>
         </Grid>
-        <Grid xs={12} md={8}>
+        <Grid item xs={12} md={8}>
           <RegisterForm />
         </Grid>
       </Grid>
-    </div>
+    </UserContextProvider>
   );
 }
 
