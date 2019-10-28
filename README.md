@@ -1,4 +1,4 @@
-# Registration form in Material-UI
+# Registration form with Material-UI
 
 This is an example of registration form made with Material-UI framework.
 It uses client side **native html validation**, and **Context API** to store my state and distribute it across different components.
